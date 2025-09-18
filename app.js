@@ -17,11 +17,11 @@ mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("✅ MongoDB connected"))
-.catch(err => {
-  console.error("❌ MongoDB connection error:", err.message);
-  process.exit(1); // Optional: exit if DB fails
-});
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => {
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1); // Optional: exit if DB fails
+  });
 
 // View engine setup
 app.set("view engine", "ejs");
@@ -42,7 +42,7 @@ app.get('/', async (req, res) => {
       blogs: allBlogs,
     });
   } catch (err) {
-    console.error("Failed to fetch blogs:", err);
+    console.error("❌ Failed to fetch blogs:", err);
     res.status(500).send("Server Error");
   }
 });
@@ -50,7 +50,7 @@ app.get('/', async (req, res) => {
 app.use("/user", userRoute);
 app.use("/blog", blogRoute);
 
-// Start server (only once, after everything is set up)
+// ✅ Start server (only once!)
 app.listen(PORT, () => {
-  console.log(`🚀 Server started on port ${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
