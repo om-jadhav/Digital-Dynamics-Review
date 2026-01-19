@@ -64,31 +64,56 @@ This project highlights strong backend fundamentals including authentication wor
 ## 📂 Project Structure
 
 Digital-Dynamics-Review/
+
 │
-├── models/ # Database schemas
+├── models/                   # Database schemas
+
 │ ├── blog.js
+
 │ └── user.js
+
 │
-├── routes/ # Application routes
+
+├── routes/                   # Application routes
+
 │ ├── blog.js
+
 │ └── user.js
+
 │
-├── middlewares/ # Authentication middleware
+
+├── middlewares/               # Authentication middleware
+
 │ └── authentication.js
+
 │
-├── views/ # EJS templates
+
+├── views/                     # EJS templates
+
 │ ├── home.ejs
+
 │ ├── login.ejs
+
 │ ├── register.ejs
+
 │ └── addBlog.ejs
+
 │
+
 ├── public/
+
 │ ├── css/
-│ └── uploads/ # Uploaded blog images/media
+
+│ └── uploads/               # Uploaded blog images/media
+
 │
+
 ├── .env
+
 ├── app.js
+
 ├── package.json
+
 └── README.md
 
 
