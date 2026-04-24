@@ -1,0 +1,602 @@
+/* ============================================
+   COLOR SYSTEM & CSS CUSTOM PROPERTIES
+   ============================================ */
+
+:root {
+    /* Primary Brand Colors */
+    --primary-blue: #0d6efd;
+    --primary-blue-dark: #0b5ed7;
+    --primary-blue-light: #e7f3ff;
+
+    /* Neutral Colors */
+    --black: #000000;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #e9ecef;
+    --gray-200: #dee2e6;
+    --gray-300: #ced4da;
+    --gray-400: #adb5bd;
+    --gray-500: #6c757d;
+    --gray-600: #495057;
+    --gray-700: #343a40;
+    --gray-800: #212529;
+    --gray-900: #000000;
+
+    /* Semantic Colors */
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   ANIMATIONS & EFFECTS
+   ============================================ */
+
+/* Page Load Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   BUTTONS & LINKS
+   ============================================ */
+
+.btn {
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+    background: linear-gradient(135deg, var(--primary-blue-dark) 0%, #0a58ca 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-outline-primary {
+    transition: all 0.3s ease !important;
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+.form-control,
+.form-select,
+textarea {
+    transition: all 0.3s ease !important;
+    border: 1px solid #dee2e6 !important;
+    background-color: #ffffff !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+    transform: translateY(-2px);
+    background-color: var(--white) !important;
+}
+
+.form-control::placeholder {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.form-control:focus::placeholder {
+    opacity: 0.3;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    opacity: 0.9;
+    transform: scale(0.85) translateY(-1.5rem) translateX(0.15rem);
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1) !important;
+    border: 1px solid var(--gray-100);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+    border-color: var(--primary-blue);
+}
+
+.card img {
+    transition: transform 0.4s ease !important;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    transition: all 0.3s ease;
+}
+
+.card-title {
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-title {
+    color: #0d6efd;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.navbar {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    transition: all 0.3s ease !important;
+    position: relative;
+    padding-bottom: 0.5rem !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: all 0.3s ease !important;
+    letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+}
+
+/* ============================================
+   CONTAINERS & SECTIONS
+   ============================================ */
+
+.container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   COMMENT SECTION
+   ============================================ */
+
+.comment-box {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.comment-box:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.comment-box:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.comment-box:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.comment-box:nth-child(n+4) {
+    animation-delay: 0.4s;
+}
+
+.comment-box:hover {
+    border-left-color: var(--primary-blue);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15) !important;
+}
+
+.avatar,
+.icon-avatar {
+    transition: all 0.3s ease;
+    border: 2px solid var(--gray-200);
+}
+
+.comment-box:hover .avatar,
+.comment-box:hover .icon-avatar {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 12px rgba(13, 110, 253, 0.2);
+}
+
+/* ============================================
+   AUTHOR BOX
+   ============================================ */
+
+.author-box {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.author-box:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.15) !important;
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+
+.alert {
+    animation: slideInRight 0.4s ease-out;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    border: none;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+.alert-secondary {
+    background: linear-gradient(135deg, #e2e3e5 0%, #d6d8db 100%);
+}
+
+/* ============================================
+   IMAGES & BLOG CONTENT
+   ============================================ */
+
+.blog-image {
+    animation: fadeInUp 0.6s ease-out;
+    transition: all 0.4s ease;
+}
+
+.blog-image:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+pre {
+    animation: fadeIn 0.6s ease-out 0.2s both;
+    transition: all 0.3s ease;
+    border-left: 4px solid #0d6efd;
+}
+
+pre:hover {
+    background-color: var(--primary-blue-light) !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1) !important;
+}
+
+/* ============================================
+   FORM CARD
+   ============================================ */
+
+.signup-card,
+.signin-card {
+    animation: scaleIn 0.5s ease-out;
+}
+
+/* ============================================
+   GRID LAYOUTS
+   ============================================ */
+
+.blog-grid > .col {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.blog-grid > .col:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.blog-grid > .col:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.blog-grid > .col:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.blog-grid > .col:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.blog-grid > .col:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.blog-grid > .col:nth-child(n+6) {
+    animation-delay: 0.6s;
+}
+
+/* ============================================
+   INPUT FILE UPLOAD
+   ============================================ */
+
+input[type="file"] {
+    position: relative;
+}
+
+input[type="file"]::file-selector-button {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+input[type="file"]::file-selector-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE ANIMATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .btn::before {
+        width: 0;
+        height: 0;
+    }
+
+    .btn:hover::before {
+        width: 200px;
+        height: 200px;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+}
+
+/* ============================================
+   LOADING & TRANSITIONS
+   ============================================ */
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   DROPDOWN MENU ANIMATIONS
+   ============================================ */
+
+.dropdown-menu {
+    animation: fadeInDown 0.3s ease-out !important;
+    opacity: 1 !important;
+    transform-origin: top !important;
+}
+
+.dropdown-menu.show {
+    animation: fadeInDown 0.3s ease-out;
+}
+
+.dropdown-item {
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(4px);
+}
+
+/* ============================================
+   TEXT EFFECTS
+   ============================================ */
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-title {
+    text-shadow: 0 0 10px rgba(13, 110, 253, 0.2);
+}

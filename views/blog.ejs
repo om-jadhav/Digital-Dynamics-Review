@@ -3,10 +3,10 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <title><%= blog.title %> | Blog</title>
+    <title><%= blog.title %> | Digital Dynamics Review</title>
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: var(--gray-50);
         }
 
         .blog-image {
@@ -17,7 +17,7 @@
         }
 
         .author-box {
-            background-color: #ffffff;
+            background-color: var(--white);
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
@@ -27,7 +27,7 @@
         }
 
         pre {
-            background-color: #f6f6f6;
+            background-color: var(--gray-100);
             padding: 15px;
             border-radius: 10px;
             white-space: pre-wrap;
@@ -35,7 +35,7 @@
         }
 
         .comment-box {
-            background-color: #ffffff;
+            background-color: var(--white);
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -54,9 +54,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #dee2e6;
+            background-color: var(--gray-200);
             font-size: 28px;
-            color: #6c757d;
+            color: var(--gray-500);
         }
 
         .author-avatar {
@@ -70,10 +70,10 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <div class="container mt-5">
-        <h1 class="mb-3"><%= blog.title %></h1>
+    <div class="container mt-5 animate-fade-in-up">
+        <h1 class="mb-3 animate-fade-in-down"><%= blog.title %></h1>
 
-        <img src="<%= blog.coverImageURL %>" alt="Blog Cover" class="blog-image">
+        <img src="<%= blog.coverImageURL %>" alt="Review Cover" class="blog-image animate-fade-in">
 
         <pre class="mb-4"><%= blog.body %></pre>
 
@@ -90,17 +90,17 @@
 
             <div>
                 <h6 class="mb-0"><%= blog.createdBy?.fullName || 'Anonymous' %></h6>
-                <small class="text-muted">Author</small>
+                <small class="text-muted">Reviewer</small>
             </div>
         </div>
     </div>
 
     <!-- Comments Section -->
-    <div class="container mt-5">
-        <h4 class="mb-4">Comments (<%= comments.length %>)</h4>
+    <div class="container mt-5 animate-fade-in-up">
+        <h4 class="mb-4 animate-fade-in-down">Comments (<%= comments.length %>)</h4>
 
         <% if (user) { %>
-            <form action="/blog/comment/<%= blog._id %>" method="post" class="mb-4">
+            <form action="/blog/comment/<%= blog._id %>" method="post" class="mb-4 animate-fade-in">
                 <div class="mb-3">
                     <input type="text" name="content" class="form-control" placeholder="Write a comment..." required>
                 </div>

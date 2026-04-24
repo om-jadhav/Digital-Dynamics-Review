@@ -3,10 +3,10 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <title>Sign Up</title>
+    <title>Sign Up - Digital Dynamics Review</title>
     <style>
         body {
-            background: #f8f9fa;
+            background: var(--gray-50);
         }
 
         .signup-card {
@@ -27,9 +27,9 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <div class="container">
-        <div class="signup-card">
-            <h3 class="text-center mb-4">Create Your Account</h3>
+    <div class="container animate-fade-in">
+        <div class="signup-card animate-scale-in">
+            <h3 class="text-center mb-4 animate-fade-in-down">Join Digital Dynamics Review</h3>
             <form action="/user/signup" method="post">
                 <div class="mb-3">
                     <label for="fullName" class="form-label">

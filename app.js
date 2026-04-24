@@ -13,14 +13,10 @@ const app = express();
 const PORT = process.env.PORT || 7000;
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => {
     console.error("❌ MongoDB connection error:", err.message);
-    process.exit(1); // Optional: exit if DB fails
   });
 
 // View engine setup
@@ -36,8 +32,19 @@ app.use(checkForAuthenticationCookie('token'));
 // Routes
 app.get('/', async (req, res) => {
   try {
-    const allBlogs = await Blog.find({});
     res.render("home.ejs", {
+      user: req.user,
+    });
+  } catch (err) {
+    console.error("❌ Failed to render home:", err);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.get('/blogs', async (req, res) => {
+  try {
+    const allBlogs = await Blog.find({});
+    res.render("blogs.ejs", {
       user: req.user,
       blogs: allBlogs,
     });
@@ -50,7 +57,7 @@ app.get('/', async (req, res) => {
 app.use("/user", userRoute);
 app.use("/blog", blogRoute);
 
-// ✅ Start server (only once!)
+// Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
